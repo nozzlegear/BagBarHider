@@ -23,6 +23,7 @@ jobs:
     # Add environment variables
     env:
       CF_API_KEY: ${{ secrets.CURSEFORGE_TOKEN }}
+      CF_PACKAGE_ID: 507973
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,6 +36,6 @@ jobs:
         uses: BigWigsMods/packager@v1.0.1
         with:
           # Command-line arguments. See https://github.com/BigWigsMods/packager#usage
-          #args: # optional
+          args: -p "$CF_PACKAGE_ID"
           # Install pandoc before packaging if uploading to WoWInterface.
           pandoc: true # optional, default is true
