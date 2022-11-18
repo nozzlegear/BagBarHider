@@ -24,6 +24,7 @@ jobs:
     env:
       CF_API_KEY: ${{ secrets.CURSEFORGE_TOKEN }}
       CF_PACKAGE_ID: 507973
+      WAGO_PACKAGE_ID: "rkGrdl6y"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,6 +37,6 @@ jobs:
         uses: BigWigsMods/packager@v1.0.1
         with:
           # Command-line arguments. See https://github.com/BigWigsMods/packager#usage
-          args: -p "$CF_PACKAGE_ID"
+          args: -p "$CF_PACKAGE_ID" -a "$WAGO_PACKAGE_ID"
           # Install pandoc before packaging if uploading to WoWInterface.
           pandoc: true # optional, default is true
