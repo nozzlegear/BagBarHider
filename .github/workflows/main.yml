@@ -23,6 +23,7 @@ jobs:
     # Add environment variables
     env:
       CF_API_KEY: ${{ secrets.CURSEFORGE_TOKEN }}
+      WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
       CF_PACKAGE_ID: 507973
       WAGO_PACKAGE_ID: "rkGrdl6y"
 
@@ -34,9 +35,7 @@ jobs:
       - name: WoW Packager
         # You may pin to the exact commit or the version.
         # uses: BigWigsMods/packager@ae90180d771a05964cbfd94b3ee09ac3b231fb16
-        uses: BigWigsMods/packager@v1.0.1
+        uses: BigWigsMods/packager@v2
         with:
           # Command-line arguments. See https://github.com/BigWigsMods/packager#usage
           args: -p "$CF_PACKAGE_ID" -a "$WAGO_PACKAGE_ID"
-          # Install pandoc before packaging if uploading to WoWInterface.
-          pandoc: true # optional, default is true
